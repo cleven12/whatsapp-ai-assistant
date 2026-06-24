@@ -31,4 +31,7 @@ See full git history (1016+ commits on 2026-06-24).
 - Updated funding links and support messaging to highlight Snippe as primary sponsor platform
 - ROADMAP.md with clear free vs Pro tier breakdown
 - Roadmap section + TOC link in README
+- Professional HTML dashboard (templates/dashboard.html) with version, free/pro highlights, and sponsor CTA
+- Makefile, .editorconfig, examples/ folder
+- Multiple code/docs improvements (health version, pro feature notes)
 
