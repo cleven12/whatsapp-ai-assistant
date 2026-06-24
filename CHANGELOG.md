@@ -34,4 +34,5 @@ See full git history (1016+ commits on 2026-06-24).
 - Professional HTML dashboard (templates/dashboard.html) with version, free/pro highlights, and sponsor CTA
 - Makefile, .editorconfig, examples/ folder
 - Multiple code/docs improvements (health version, pro feature notes)
+- Project structure docs + issue template config updated for Pro contacts
 
