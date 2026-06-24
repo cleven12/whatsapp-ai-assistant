@@ -301,7 +301,7 @@ This project is **free and open source**. If it saves you time or helps your bus
 
 Every contribution helps add new features and keep the project maintained. Thank you! ❤️
 
-> 💡 Looking for advanced capabilities? See the **[Pro / Enterprise](#-pro--enterprise-features)** section below.
+> 💡 Looking for advanced capabilities? See **[Pro / Enterprise Features](#-pro--enterprise-features)** or contact us via [Email](mailto:clevengodsontech@gmail.com) / [WhatsApp](https://wa.me/255692654000).
 
 ---
 
