@@ -34,7 +34,7 @@ def create_app(config_class=Config):
         return {
             "status": "ok",
             "service": "whatsapp-ai-assistant",
-            "version": app.config.get("VERSION", "0.2.0")
+            "version": app.config.get("VERSION", "1.0.0")
         }, 200
 
     return app

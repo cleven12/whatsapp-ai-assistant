@@ -7,5 +7,5 @@ def index():
     """Professional dashboard page (Free + Pro highlights)."""
     return render_template(
         'dashboard.html',
-        version=current_app.config.get('VERSION', '0.2.0')
+        version=current_app.config.get('VERSION', '1.0.0')
     )

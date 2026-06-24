@@ -6,7 +6,7 @@ load_dotenv()
 class Config:
     """Base configuration class for the WhatsApp AI Assistant."""
     
-    VERSION = "0.2.0"
+    VERSION = "1.0.0"
     SECRET_KEY = os.environ.get('SECRET_KEY', 'dev-key-123')
     DEBUG = os.environ.get('FLASK_DEBUG', '0') == '1'
     LOG_LEVEL = os.environ.get('LOG_LEVEL', 'INFO')

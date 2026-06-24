@@ -16,7 +16,7 @@ A production-ready, extensible WhatsApp AI assistant powered by **Retrieval-Augm
 
 Built with Flask, LangChain, Pinecone, and the official WhatsApp Cloud API.
 
-**Current status:** v0.2.0 — actively improved (1000+ commits June 2026)
+**Current status:** v1.0.0 — Production-ready professional release (1000+ commits)
 
 ---
 
