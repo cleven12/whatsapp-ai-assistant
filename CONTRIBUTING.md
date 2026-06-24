@@ -29,6 +29,16 @@ Thank you for your interest in contributing! 🎉
 - Add docstrings to public functions
 - Keep LLM prompt engineering clean and well commented
 
+## Commercial / Pro Work
+
+CRM integrations, third-party app connectors, and other advanced features listed under "Pro / Enterprise Features" in the README are offered as paid professional services.
+
+If you need custom development:
+- Email: clevengodsontech@gmail.com
+- WhatsApp: +255 692 654 000
+
+Community contributions to the free core are still very welcome!
+
 ## Reporting Bugs
 
 Please use the GitHub issue template for bug reports. Include:
