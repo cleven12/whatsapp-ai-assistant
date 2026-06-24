@@ -129,7 +129,9 @@ flask run
 
 ## 🏗️ Architecture
 
-The core flow is simple and easy to follow:
+The core flow is simple and easy to follow (visualized below):
+
+> 💡 **Tip**: This diagram shows exactly what happens from the moment a user sends a WhatsApp message until they receive a reply.
 
 ```mermaid
 sequenceDiagram
