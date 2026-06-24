@@ -1,0 +1,22 @@
+# Sample Knowledge Base Document
+
+This is an example document that you can copy into the `uploads/` folder.
+
+## About This Project
+
+The WhatsApp AI Assistant allows you to chat with your documents over WhatsApp using powerful RAG + LLMs.
+
+## Key Benefits (Free Tier)
+- Instant answers grounded in your own documents
+- Works with multiple LLM providers
+- Remembers conversation history
+
+## Pro Tier Benefits
+- Sync every conversation automatically to your CRM
+- Trigger workflows in Slack, Sheets, or your internal systems
+- Full analytics and team collaboration features
+
+For more information, please refer to the main README or contact:
+- Email: clevengodsontech@gmail.com
+- WhatsApp: +255 692 654 000
+- Sponsor: https://snippe.me/pay/support-cleven
