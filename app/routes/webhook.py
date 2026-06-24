@@ -47,7 +47,9 @@ def handle_message():
                 logger.info(f"Received message from {whatsapp_number}")
                 process_user_message(whatsapp_number, user_text)
             else:
-                logger.debug(f"Non-text message from {whatsapp_number} ignored")
+                # Note: Media, images, voice, location etc. are Pro features
+                logger.debug(f"Non-text message from {whatsapp_number} ignored (Pro feature)")
+                # In Pro version: handle media and forward to CRM etc.
             
     except Exception as e:
         logger.exception(f"Error parsing webhook payload: {e}")
