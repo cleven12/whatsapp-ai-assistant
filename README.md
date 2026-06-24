@@ -322,5 +322,6 @@ This project is licensed under the MIT License — see the [LICENSE](LICENSE) fi
 ---
 
 <p align="center">
-  Made with ❤️ by <a href="https://github.com/cleven12">Cleven</a>
+  Made with ❤️ by <a href="https://github.com/cleven12">Cleven</a><br>
+  <a href="mailto:clevengodsontech@gmail.com">clevengodsontech@gmail.com</a> • <a href="https://wa.me/255692654000">+255 692 654 000 (WhatsApp)</a>
 </p>
