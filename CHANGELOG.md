@@ -29,4 +29,6 @@ See full git history (1016+ commits on 2026-06-24).
 - New "Pro / Enterprise Features" section documenting CRM integrations (HubSpot, Salesforce, etc.) and third-party app integrations (Slack, Zapier, Google Sheets, custom APIs) — available for paid/Pro users only
 - Dedicated Contact section with Email (clevengodsontech@gmail.com) and WhatsApp (+255 692 654 000)
 - Updated funding links and support messaging to highlight Snippe as primary sponsor platform
+- ROADMAP.md with clear free vs Pro tier breakdown
+- Roadmap section + TOC link in README
 
