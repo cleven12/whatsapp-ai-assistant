@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp AI Assistant • Dashboard</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
+        
+        :root {
+            --primary: #25D366;
+        }
+        
+        * { box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f8fafc;
+            color: #0f172a;
+            line-height: 1.5;
+        }
+        
+        .header {
+            background: white;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 600;
+            font-size: 1.25rem;
+        }
+        
+        .logo span {
+            color: var(--primary);
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            padding: 1.75rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #e2e8f0;
+        }
+        
+        h1 { margin: 0 0 0.5rem; font-size: 1.75rem; font-weight: 600; }
+        h2 { margin-top: 0; font-size: 1.25rem; }
+        
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #dcfce7;
+            color: #166534;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.25rem;
+            margin-top: 1rem;
+        }
+        
+        .metric {
+            padding: 1rem;
+            background: #f8fafc;
+            border-radius: 8px;
+        }
+        
+        .metric-label {
+            font-size: 0.875rem;
+            color: #64748b;
+            margin-bottom: 0.25rem;
+        }
+        
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .section-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 1.5rem 0 0.75rem;
+            color: #334155;
+        }
+        
+        ul {
+            padding-left: 1.25rem;
+        }
+        
+        li { margin-bottom: 0.35rem; }
+        
+        .footer {
+            text-align: center;
+            color: #64748b;
+            font-size: 0.875rem;
+            margin-top: 3rem;
+            padding-bottom: 2rem;
+        }
+        
+        .pro-badge {
+            background: #fef3c7;
+            color: #92400e;
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.6rem 1.25rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+        }
+        
+        .btn:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <span>📱</span> 
+            WhatsApp AI Assistant
+        </div>
+        <div>
+            <span class="status">● Online</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <h1>Dashboard</h1>
+            <p style="color:#64748b; margin:0;">RAG Management &amp; Overview</p>
+            
+            <div class="grid">
+                <div class="metric">
+                    <div class="metric-label">Status</div>
+                    <div class="metric-value">Running</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-label">LLM Router</div>
+                    <div class="metric-value">Active</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-label">RAG Index</div>
+                    <div class="metric-value">Pinecone</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Quick Actions</h2>
+            
+            <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+                <a href="/health" class="btn" style="background:#0f172a;">Check Health</a>
+                <a href="https://snippe.me/pay/support-cleven" class="btn">Support on Snippe</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Core Features (Free)</h2>
+            <ul>
+                <li>✅ WhatsApp Cloud API Webhook</li>
+                <li>✅ Pinecone RAG + Document Ingestion</li>
+                <li>✅ Multi-LLM Fallback (Groq, Gemini, OpenAI, Claude, xAI)</li>
+                <li>✅ Persistent Conversation Memory</li>
+                <li>✅ Docker Ready</li>
+            </ul>
+            
+            <h2 class="section-title">Pro Features <span class="pro-badge">PAID</span></h2>
+            <ul>
+                <li>🔗 CRM Integrations (HubSpot, Salesforce, Pipedrive...)</li>
+                <li>🔌 App Connectors (Slack, Sheets, Zapier, Custom APIs)</li>
+                <li>📊 Advanced Analytics &amp; Team Inbox</li>
+                <li>🛡️ White-label + Enterprise Deployment</li>
+                <li>📞 Voice + Media Message Support</li>
+            </ul>
+            <p style="margin-top:1rem;">
+                <a href="https://snippe.me/pay/support-cleven" target="_blank" class="btn">Get Pro / Sponsor</a>
+            </p>
+            <p style="font-size:0.875rem; color:#64748b;">
+                Contact: <a href="mailto:clevengodsontech@gmail.com">clevengodsontech@gmail.com</a> • 
+                <a href="https://wa.me/255692654000">+255 692 654 000</a>
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>Getting Started</h2>
+            <p>See the <a href="https://github.com/cleven12/whatsapp-ai-assistant">full README</a> for setup instructions.</p>
+            <p>Upload documents to <code>uploads/</code> and run <code>python ingest_docs.py</code>.</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        Made with ❤️ by Cleven • 
+        <a href="https://github.com/cleven12/whatsapp-ai-assistant">GitHub</a> • 
+        <a href="https://snippe.me/pay/support-cleven">Sponsor</a>
+    </div>
+</body>
+</html>
