@@ -14,7 +14,7 @@ If you discover a security vulnerability, please **do not** open a public issue.
 
 Instead:
 
-- Email: cleven.noreplay@gmail.com (or open a private security advisory on GitHub if available)
+- Email: clevengodsontech@gmail.com (or open a private security advisory on GitHub if available)
 - Provide as much detail as possible (steps to reproduce, affected component)
 
 We will respond within 48 hours and work with you to resolve the issue responsibly.
