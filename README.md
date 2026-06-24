@@ -32,6 +32,8 @@ Built with Flask, LangChain, Pinecone, and the official WhatsApp Cloud API.
 ## 📋 Table of Contents
 
 - [Quick Start](#-quick-start)
+- [Key Features](#-key-features)
+- [Pro / Enterprise Features](#-pro--enterprise-features)
 - [Architecture](#-architecture)
 - [Configuration](#-configuration)
 - [Usage](#-usage)
@@ -39,6 +41,8 @@ Built with Flask, LangChain, Pinecone, and the official WhatsApp Cloud API.
 - [Development](#-development)
 - [Deployment](#-deployment)
 - [Contributing](#-contributing)
+- [Support](#-support-this-project)
+- [Contact](#-contact)
 - [License](#-license)
 
 ---
