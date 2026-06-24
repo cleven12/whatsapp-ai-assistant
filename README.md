@@ -252,11 +252,16 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
 ---
 
-## 💖 Support
+## 💖 Support This Project
 
-If this project helps you, consider buying me a coffee:
+This project is **free and open source**. If it saves you time or helps your business, please support development:
 
-[![Support](https://img.shields.io/badge/☕_Buy_Me_A_Coffee-FFDD00?style=for-the-badge)](https://snippe.me/pay/support-cleven)
+**Sponsor via Snippe** (recommended):
+[![Support on Snippe](https://img.shields.io/badge/💰_Support_via_Snippe-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://snippe.me/pay/support-cleven)
+
+Every contribution helps add new features and keep the project maintained. Thank you! ❤️
+
+> 💡 Looking for advanced capabilities? See the **[Pro / Enterprise](#-pro--enterprise-features)** section below.
 
 ---
 
