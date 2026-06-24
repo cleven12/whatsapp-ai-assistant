@@ -9,3 +9,5 @@ The app is intentionally simple:
 - Local or external SQL DB for conversation state
 
 This keeps it easy to deploy and reason about.
+
+**Note:** Advanced CRM and multi-app integration layers are part of the paid Pro offering (contact details in README).
