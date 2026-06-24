@@ -129,25 +129,49 @@ flask run
 
 ## 🏗️ Architecture
 
-```
-User (WhatsApp)
-    ↓
-WhatsApp Cloud API Webhook
-    ↓
-Flask App (webhook.py)
-    ├─→ User & Message models (SQLite/Postgres)
-    ├─→ RAGService (Pinecone + sentence-transformers)
-    ├─→ LLMRouter (multi-provider fallback)
-    └─→ WhatsAppService (send response)
+The core flow is simple and easy to follow:
+
+```mermaid
+sequenceDiagram
+    participant User as User (WhatsApp)
+    participant WA as WhatsApp Cloud API
+    participant Webhook as Flask Webhook<br/>(app/routes/webhook.py)
+    participant DB as Database<br/>(SQLite/Postgres)
+    participant RAG as RAG Service<br/>(app/rag/retriever.py)
+    participant LLM as LLM Router<br/>(app/llm/router.py)
+    participant WS as WhatsApp Service<br/>(app/services/whatsapp.py)
+
+    User->>WA: Send text message
+    WA->>Webhook: POST /webhook (message)
+    
+    Webhook->>DB: Get or create User<br/>Save user message
+    
+    Webhook->>RAG: query(user_text)
+    RAG->>PC[(Pinecone Vector DB)]: Semantic search
+    PC-->>RAG: Relevant context chunks
+    RAG-->>Webhook: Context
+    
+    Webhook->>LLM: get_llm() (fallback order)
+    LLM-->>Webhook: LLM client<br/>(Groq → Gemini → OpenAI → Claude → xAI)
+    
+    Webhook->>DB: Fetch recent conversation history
+    Webhook->>LLM: invoke(prompt + context + history)
+    LLM-->>Webhook: AI-generated response
+    
+    Webhook->>DB: Save assistant message
+    Webhook->>WS: send_message(recipient, response)
+    WS->>WA: POST to Messages API
+    WA->>User: Deliver reply on WhatsApp
 ```
 
 **Key Components:**
 
 - `app/services/whatsapp.py` — WhatsApp send API wrapper
-- `app/llm/router.py` — Resilient LLM provider selection
-- `app/rag/retriever.py` — Semantic search over your docs
-- `app/models/` — SQLAlchemy models for memory
-- `ingest_docs.py` — Batch document ingestion pipeline
+- `app/llm/router.py` — Resilient LLM provider selection with automatic fallback
+- `app/rag/retriever.py` — Semantic search over your documents (Pinecone + HuggingFace embeddings)
+- `app/models/` — SQLAlchemy models (`User` + `Message`) for persistent memory
+- `ingest_docs.py` — Batch document ingestion pipeline into Pinecone
+- `process_user_message()` in webhook — Core orchestration (RAG + LLM + Memory)
 
 ---
 
