@@ -17,3 +17,7 @@ Use the dashboard or `setup_pinecone.py`.
 - Always use HTTPS
 - Set strong secret
 - Use a real database
+
+---
+
+For Pro version (CRM integrations etc.): contact clevengodsontech@gmail.com or +255 692 654 000 (WhatsApp). Support the project: https://snippe.me/pay/support-cleven
