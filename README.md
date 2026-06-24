@@ -28,7 +28,7 @@ Built with Flask, LangChain, Pinecone, and the official WhatsApp Cloud API.
 - 💾 **Persistent Memory** — Full conversation history per user stored in database
 - 🐳 **Dockerized** — One-command deployment with docker-compose
 - 🔧 **Easy Knowledge Ingestion** — `ingest_docs.py` script for your documents
-- 📊 **Dashboard Stub** — Ready for admin UI extensions
+- 📊 **Dashboard** — Clean web UI with Free vs Pro highlights + sponsor links
 - 🛡️ **Production-Ready Config** — Environment-based config, safe defaults
 
 ---
