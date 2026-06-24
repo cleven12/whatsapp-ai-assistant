@@ -8,14 +8,23 @@ import logging
 logger = logging.getLogger(__name__)
 
 class LLMRouter:
+    """
+    Intelligent multi-provider LLM router with graceful fallback.
+    
+    Priority order:
+    1. Groq (fast & cheap Llama3)
+    2. Google Gemini
+    3. OpenAI
+    4. xAI Grok (via OpenAI compatible if key present)
+    5. Anthropic Claude
+    """
+
     def __init__(self):
         self.config = current_app.config
 
     def get_llm(self):
-        """
-        Fallback logic: Groq -> Gemini -> OpenAI -> xAI -> Claude
-        """
-        # 1. Groq (Llama 3) - Fast & Cheap
+        """Return the first available configured LLM client."""
+        # 1. Groq
         if self.config.get('GROQ_API_KEY'):
             try:
                 logger.info("Initializing Groq LLM")
@@ -49,11 +58,21 @@ class LLMRouter:
             except Exception as e:
                 logger.warning(f"OpenAI initialization failed: {e}")
 
-        # 4. xAI (Grok) - Placeholder as LangChain support varies
-        # if self.config.get('XAI_API_KEY'):
-        #     pass
+        # 4. xAI Grok - use OpenAI-compatible endpoint if langchain supports via base_url in future
+        if self.config.get('XAI_API_KEY'):
+            try:
+                logger.info("Falling back to xAI (Grok)")
+                # Note: As of 2026 xAI may have native or OpenAI compatible client.
+                # Using ChatOpenAI with base_url override is one common pattern.
+                return ChatOpenAI(
+                    model_name="grok-2-latest",
+                    openai_api_key=self.config['XAI_API_KEY'],
+                    openai_api_base="https://api.x.ai/v1"
+                )
+            except Exception as e:
+                logger.warning(f"xAI initialization failed: {e}")
 
-        # 5. Anthropic Claude 3.5 Sonnet
+        # 5. Claude
         if self.config.get('ANTHROPIC_API_KEY'):
             try:
                 logger.info("Falling back to Claude")
@@ -64,4 +83,4 @@ class LLMRouter:
             except Exception as e:
                 logger.error(f"Claude initialization failed: {e}")
 
-        raise ValueError("No LLM providers available or configured correctly.")
+        raise ValueError("No LLM providers available or configured correctly. Please set at least one *_API_KEY.")
