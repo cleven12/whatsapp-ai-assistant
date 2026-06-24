@@ -78,6 +78,7 @@ You can also support the free project on [Snippe](https://snippe.me/pay/support-
 - [Deployment](#-deployment)
 - [Contributing](#-contributing)
 - [Support](#-support-this-project)
+- [Roadmap](#-roadmap)
 - [Contact](#-contact)
 - [License](#-license)
 
