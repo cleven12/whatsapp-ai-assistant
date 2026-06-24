@@ -299,6 +299,18 @@ Every contribution helps add new features and keep the project maintained. Thank
 
 ---
 
+## 📬 Contact
+
+For **Pro licensing**, enterprise features (CRM integrations, custom app connections), support, or business inquiries:
+
+**Email:** [clevengodsontech@gmail.com](mailto:clevengodsontech@gmail.com)
+
+**WhatsApp:** [+255 692 654 000](https://wa.me/255692654000)
+
+We typically respond within 24 hours.
+
+---
+
 ## 📄 License
 
 This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
