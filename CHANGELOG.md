@@ -35,4 +35,5 @@ See full git history (1016+ commits on 2026-06-24).
 - Makefile, .editorconfig, examples/ folder
 - Multiple code/docs improvements (health version, pro feature notes)
 - Project structure docs + issue template config updated for Pro contacts
+- Mermaid sequence diagrams added to README and docs/ARCHITECTURE.md for clear visual flow of WhatsApp → RAG → LLM → Response
 
