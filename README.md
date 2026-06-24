@@ -142,6 +142,7 @@ sequenceDiagram
     participant RAG as RAG Service<br/>(app/rag/retriever.py)
     participant LLM as LLM Router<br/>(app/llm/router.py)
     participant WS as WhatsApp Service<br/>(app/services/whatsapp.py)
+    participant PC as Pinecone<br/>Vector DB
 
     User->>WA: Send text message
     WA->>Webhook: POST /webhook (message)
@@ -149,7 +150,7 @@ sequenceDiagram
     Webhook->>DB: Get or create User<br/>Save user message
     
     Webhook->>RAG: query(user_text)
-    RAG->>PC[(Pinecone Vector DB)]: Semantic search
+    RAG->>PC: Semantic search
     PC-->>RAG: Relevant context chunks
     RAG-->>Webhook: Context
     

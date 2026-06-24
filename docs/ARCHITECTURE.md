@@ -13,14 +13,15 @@ sequenceDiagram
     participant RAG as RAG Service
     participant LLM as LLM Router
     participant WS as WhatsApp Service
+    participant PC as Pinecone Vector DB
 
     User->>WA: Send message
     WA->>Webhook: POST /webhook
     
     Webhook->>DB: Create/Get User + Save incoming message
     Webhook->>RAG: Retrieve relevant context
-    RAG->>Pinecone[(Pinecone)]: Similarity search
-    Pinecone-->>RAG: Top-k chunks
+    RAG->>PC: Similarity search
+    PC-->>RAG: Top-k chunks
     RAG-->>Webhook: Context
     
     Webhook->>LLM: Select best available LLM
