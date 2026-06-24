@@ -240,9 +240,23 @@ Example interaction flow is handled automatically in `process_user_message()`.
 
 ## 🛠️ Development
 
-### Run tests (when implemented)
+### Quick Commands
+
+Use the Makefile for convenience:
 
 ```bash
+make run          # Start local Flask dev server
+make docker-up    # Build & run with Docker
+make ingest       # Ingest documents from uploads/
+make setup        # Create Pinecone index
+make test         # Run tests
+```
+
+### Run tests
+
+```bash
+make test
+# or
 pytest
 ```
 
