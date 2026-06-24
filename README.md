@@ -293,6 +293,17 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
 ---
 
+## 🗺️ Roadmap
+
+See [ROADMAP.md](ROADMAP.md) for the full plan, including:
+
+- **Free tier improvements** (community contributions welcome)
+- **Pro/Enterprise features** (CRM integrations, advanced app connectors, analytics, white-labeling, etc.)
+
+The free core stays powerful and open source. Paid upgrades unlock business-critical integrations.
+
+---
+
 ## 💖 Support This Project
 
 This project is **free and open source**. If it saves you time or helps your business, please support development:
