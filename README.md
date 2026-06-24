@@ -8,6 +8,8 @@
 [![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=for-the-badge&logo=docker)](https://docker.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
+[![Sponsor on Snippe](https://img.shields.io/badge/Sponsor-Snippe.me-FFDD00?style=for-the-badge)](https://snippe.me/pay/support-cleven)
+
 A production-ready, extensible WhatsApp AI assistant powered by **Retrieval-Augmented Generation (RAG)**, multi-LLM intelligent routing with automatic fallbacks, and persistent conversation memory using SQLAlchemy.
 
 Built with Flask, LangChain, Pinecone, and the official WhatsApp Cloud API.
