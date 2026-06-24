@@ -1,49 +1,269 @@
 # 🤖 WhatsApp AI Assistant
 
-A production-ready WhatsApp AI agent with RAG, intelligent LLM routing, and persistent memory.
+[![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+[![Flask](https://img.shields.io/badge/Flask-3.x-000000?style=for-the-badge&logo=flask)](https://flask.palletsprojects.com)
+[![LangChain](https://img.shields.io/badge/LangChain-Latest-1C3C3C?style=for-the-badge)](https://python.langchain.com)
+[![Pinecone](https://img.shields.io/badge/Pinecone-Vector_DB-4B2EFF?style=for-the-badge)](https://pinecone.io)
+[![WhatsApp](https://img.shields.io/badge/WhatsApp_Cloud_API-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://developers.facebook.com/docs/whatsapp/cloud-api)
+[![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=for-the-badge&logo=docker)](https://docker.com)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
-<p align="center">
+A production-ready, extensible WhatsApp AI assistant powered by **Retrieval-Augmented Generation (RAG)**, multi-LLM intelligent routing with automatic fallbacks, and persistent conversation memory using SQLAlchemy.
 
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![Flask](https://img.shields.io/badge/Flask-000000?style=flat-square&logo=flask)
-![LangChain](https://img.shields.io/badge/LangChain-1C3C3C?style=flat-square)
-![Pinecone](https://img.shields.io/badge/Pinecone-4B2EFF?style=flat-square)
-![SQLite](https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite)
-![WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?style=flat-square&logo=whatsapp)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker)
-![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
+Built with Flask, LangChain, Pinecone, and the official WhatsApp Cloud API.
 
-</p>
+---
+
+## ✨ Key Features
+
+- 📱 **Full WhatsApp Cloud API Integration** — Send/receive messages via webhooks
+- 🧠 **RAG with Pinecone** — Upload your PDFs/TXTs and get accurate, grounded answers
+- 🔀 **Smart LLM Router** — Automatic fallback: Groq → Google Gemini → OpenAI → Anthropic Claude (xAI support ready)
+- 💾 **Persistent Memory** — Full conversation history per user stored in database
+- 🐳 **Dockerized** — One-command deployment with docker-compose
+- 🔧 **Easy Knowledge Ingestion** — `ingest_docs.py` script for your documents
+- 📊 **Dashboard Stub** — Ready for admin UI extensions
+- 🛡️ **Production-Ready Config** — Environment-based config, safe defaults
+
+---
+
+## 📋 Table of Contents
+
+- [Quick Start](#-quick-start)
+- [Architecture](#-architecture)
+- [Configuration](#-configuration)
+- [Usage](#-usage)
+- [Project Structure](#-project-structure)
+- [Development](#-development)
+- [Deployment](#-deployment)
+- [Contributing](#-contributing)
+- [License](#-license)
 
 ---
 
 ## 🚀 Quick Start
 
-1. **Clone & Setup**:
-   ```bash
-   git clone https://github.com/cleven12/whatsapp-ai-assistant.git && cd whatsapp-ai-assistant
-   cp .env.example .env
-   ```
-2. **Configure**: Add your API keys to `.env`.
-3. **Launch**:
-   ```bash
-   docker compose up --build
-   ```
+### Prerequisites
+- Python 3.10+
+- Docker & Docker Compose (recommended)
+- Pinecone account + index
+- WhatsApp Business Account + Cloud API access (Meta for Developers)
+- At least one LLM API key (Groq recommended for speed/cost)
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/cleven12/whatsapp-ai-assistant.git
+cd whatsapp-ai-assistant
+```
+
+### 2. Setup environment
+
+```bash
+cp .env.example .env
+```
+
+Edit `.env` with your credentials.
+
+### 3. Start with Docker (recommended)
+
+```bash
+docker compose up --build
+```
+
+App will be available at http://localhost:5000
+
+### 4. (Optional) Local run without Docker
+
+```bash
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+flask run
+```
 
 ---
 
-## 💖 Support This Project
+## 🏗️ Architecture
 
-If you find this project useful, please consider supporting my work!
+```
+User (WhatsApp)
+    ↓
+WhatsApp Cloud API Webhook
+    ↓
+Flask App (webhook.py)
+    ├─→ User & Message models (SQLite/Postgres)
+    ├─→ RAGService (Pinecone + sentence-transformers)
+    ├─→ LLMRouter (multi-provider fallback)
+    └─→ WhatsAppService (send response)
+```
 
-<p align="center">
-  <a href="https://snippe.me/pay/support-cleven">
-    <img src="https://img.shields.io/badge/Support_Me-Click_Here-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black" alt="Support Me">
-  </a>
-</p>
+**Key Components:**
+
+- `app/services/whatsapp.py` — WhatsApp send API wrapper
+- `app/llm/router.py` — Resilient LLM provider selection
+- `app/rag/retriever.py` — Semantic search over your docs
+- `app/models/` — SQLAlchemy models for memory
+- `ingest_docs.py` — Batch document ingestion pipeline
+
+---
+
+## ⚙️ Configuration
+
+All configuration lives in `.env` (see `.env.example`).
+
+### Required Variables
+
+| Variable | Description |
+|----------|-------------|
+| `WHATSAPP_TOKEN` | Permanent access token from Meta |
+| `WHATSAPP_PHONE_NUMBER_ID` | From WhatsApp Cloud API setup |
+| `WHATSAPP_VERIFY_TOKEN` | Your custom verification string |
+| `DATABASE_URL` | e.g. `sqlite:///instance/database.db` or Postgres URI |
+| `PINECONE_API_KEY` | Your Pinecone API key |
+| `PINECONE_INDEX_NAME` | Usually `whatsapp-rag` |
+
+### LLM Keys (at least one)
+
+- `GROQ_API_KEY`
+- `GOOGLE_API_KEY`
+- `OPENAI_API_KEY`
+- `ANTHROPIC_API_KEY`
+- `XAI_API_KEY`
+
+Set up your Pinecone index (384 dim, cosine) using:
+
+```bash
+python setup_pinecone.py
+```
+
+Ingest your knowledge base:
+
+```bash
+mkdir -p uploads
+# Put .txt or .pdf files into uploads/
+python ingest_docs.py
+```
+
+---
+
+## 💬 Usage
+
+1. Configure webhook URL in Meta App Dashboard:
+   `https://your-domain.com/webhook/`
+
+2. Send any message to your WhatsApp number.
+
+3. The assistant will:
+   - Store the user message
+   - Retrieve relevant RAG context
+   - Query best available LLM
+   - Store assistant reply
+   - Reply on WhatsApp
+
+Example interaction flow is handled automatically in `process_user_message()`.
+
+---
+
+## 📁 Project Structure
+
+```
+.
+├── app/
+│   ├── __init__.py          # App factory
+│   ├── config.py            # Centralized config
+│   ├── models/              # SQLAlchemy models
+│   ├── llm/
+│   │   └── router.py        # Multi-LLM fallback
+│   ├── rag/
+│   │   └── retriever.py     # Pinecone RAG
+│   ├── routes/
+│   │   ├── webhook.py
+│   │   └── dashboard.py
+│   └── services/
+│       └── whatsapp.py
+├── static/                  # Frontend assets (expandable)
+├── uploads/                 # (gitignored) Documents for RAG
+├── ingest_docs.py           # Knowledge base loader
+├── setup_pinecone.py
+├── app.py                   # Dev entrypoint
+├── Dockerfile
+├── docker-compose.yml
+├── requirements.txt
+└── README.md
+```
+
+---
+
+## 🛠️ Development
+
+### Run tests (when implemented)
+
+```bash
+pytest
+```
+
+### Code quality
+
+Consider adding:
+- ruff / black for formatting
+- mypy
+
+### Database migrations
+
+```bash
+flask db init
+flask db migrate -m "init"
+flask db upgrade
+```
+
+---
+
+## 🚢 Deployment
+
+### Docker (Production)
+
+Update docker-compose or use your platform (Railway, Render, Fly.io, AWS etc).
+
+Recommended production settings:
+- Use Postgres for `DATABASE_URL`
+- Set `FLASK_ENV=production`
+- Strong `SECRET_KEY`
+- Gunicorn workers tuned
+
+### Webhook Security
+
+Always verify `WHATSAPP_VERIFY_TOKEN` and consider IP allow-listing from Meta.
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions!
+
+1. Fork the repo
+2. Create feature branch (`git checkout -b feat/amazing-feature`)
+3. Commit your changes (`git commit -m 'feat: add amazing feature'`)
+4. Push and open a Pull Request
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
+
+---
+
+## 💖 Support
+
+If this project helps you, consider buying me a coffee:
+
+[![Support](https://img.shields.io/badge/☕_Buy_Me_A_Coffee-FFDD00?style=for-the-badge)](https://snippe.me/pay/support-cleven)
 
 ---
 
 ## 📄 License
 
-Distributed under the MIT License.
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+
+---
+
+<p align="center">
+  Made with ❤️ by <a href="https://github.com/cleven12">Cleven</a>
+</p>
