@@ -31,6 +31,10 @@ def create_app(config_class=Config):
     # Simple health check
     @app.route('/health')
     def health():
-        return {"status": "ok", "service": "whatsapp-ai-assistant"}, 200
+        return {
+            "status": "ok",
+            "service": "whatsapp-ai-assistant",
+            "version": app.config.get("VERSION", "0.2.0")
+        }, 200
 
     return app
