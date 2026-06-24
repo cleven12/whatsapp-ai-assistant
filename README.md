@@ -55,6 +55,8 @@ The open-source version is powerful for individuals, small teams, and prototypes
 
 For Pro licensing, custom integrations, or enterprise deployment, please contact us directly (see [Contact](#-contact) section).
 
+You can also support the free project on [Snippe](https://snippe.me/pay/support-cleven).
+
 > These capabilities are **not included** in the free open-source distribution. They are offered separately as professional services or paid upgrades.
 
 ---
