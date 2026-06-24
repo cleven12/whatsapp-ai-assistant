@@ -10,8 +10,10 @@ This document outlines the current state and future direction of the WhatsApp AI
 - Persistent per-user conversation memory (SQLite / Postgres)
 - Basic ingestion script (`ingest_docs.py`)
 - Docker + docker-compose support
-- Health endpoint + simple dashboard placeholder
+- Health endpoint + professional dashboard
 - Basic test suite
+
+See the [visual architecture diagram](https://github.com/cleven12/whatsapp-ai-assistant#architecture) (Mermaid sequence diagram) in the README.
 
 ## Pro / Enterprise Features (Paid)
 
