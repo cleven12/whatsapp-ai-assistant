@@ -225,14 +225,18 @@ Example interaction flow is handled automatically in `process_user_message()`.
 │   │   └── dashboard.py
 │   └── services/
 │       └── whatsapp.py
-├── static/                  # Frontend assets (expandable)
+├── static/                  # Frontend assets
+├── templates/               # Dashboard HTML (Jinja)
 ├── uploads/                 # (gitignored) Documents for RAG
-├── ingest_docs.py           # Knowledge base loader
+├── examples/                # Sample knowledge documents
+├── ingest_docs.py
 ├── setup_pinecone.py
-├── app.py                   # Dev entrypoint
+├── Makefile                 # make run | docker-up | ingest | test
+├── app.py
 ├── Dockerfile
 ├── docker-compose.yml
 ├── requirements.txt
+├── ROADMAP.md
 └── README.md
 ```
 
