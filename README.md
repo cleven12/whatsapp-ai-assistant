@@ -29,6 +29,36 @@ Built with Flask, LangChain, Pinecone, and the official WhatsApp Cloud API.
 
 ---
 
+## 🚀 Pro / Enterprise Features
+
+The open-source version is powerful for individuals, small teams, and prototypes.
+
+**Pro features** (available via paid license / custom development) include:
+
+- 🔗 **CRM Integrations**
+  - HubSpot, Salesforce, Pipedrive, Zoho, and custom CRMs
+  - Automatic lead/contact sync, conversation logging, and deal stage updates directly from WhatsApp chats
+
+- 🔌 **App & Workflow Integrations**
+  - Slack, Microsoft Teams, Google Sheets, Notion
+  - Zapier / Make.com / n8n webhooks for no-code automations
+  - Custom REST API connectors and internal tool integrations
+  - Calendar booking, payment gateways (Stripe, etc.), and ticketing systems
+
+- 📈 **Advanced Capabilities**
+  - Analytics dashboard & conversation insights
+  - Multi-number / team inbox support
+  - Priority support + SLA
+  - Custom LLM fine-tuning or private model hosting
+  - On-premise / VPC deployment options
+  - White-labeling and branding removal
+
+For Pro licensing, custom integrations, or enterprise deployment, please contact us directly (see [Contact](#-contact) section).
+
+> These capabilities are **not included** in the free open-source distribution. They are offered separately as professional services or paid upgrades.
+
+---
+
 ## 📋 Table of Contents
 
 - [Quick Start](#-quick-start)
